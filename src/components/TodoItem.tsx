@@ -1,14 +1,19 @@
 import { FaInfoCircle, FaPencilAlt, FaRegTrashAlt } from "react-icons/fa";
 
-const TodoItem = () => {
+const TodoItem = ({ todo }: { todo: any }) => {
   return (
     <div className="todo">
       {/* checkbox */}
       <input type="checkbox" name="completed" id="completed" />
       {/* to do title */}
-      <div className="todotitle">Buy gloceries next week</div>
+      <div className="todotitle">{todo.todoItem}</div>
       {/* deadline */}
-      <div className="deadline">28th june 2020</div>
+
+      {todo.deadline.length != 0 ? (
+        <div className="deadline">{todo.deadline}</div>
+      ) : (
+        ""
+      )}
       {/* icons */}
       <div className="todo-button-area">
         <div className="todo-buttons">
@@ -21,7 +26,7 @@ const TodoItem = () => {
         </div>
         <div className="createdDate">
           <FaInfoCircle />
-          <span>28th june 2020</span>
+          <span>{todo.created}</span>
         </div>
       </div>
     </div>
@@ -29,4 +34,3 @@ const TodoItem = () => {
 };
 
 export default TodoItem;
-5;

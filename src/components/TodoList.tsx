@@ -1,12 +1,11 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
+const TodoList = ({ data }: { data: any[] }) => {
   return (
     <div className="todoList">
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      {data.map((todo, i) => (
+        <TodoItem key={i} todo={todo} />
+      ))}
     </div>
   );
 };

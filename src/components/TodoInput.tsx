@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 
-const TodoInput = () => {
+const TodoInput = ({ userData }: { userData: any }) => {
   const [isVisible, setIsvisible] = useState<boolean>(false);
   const [todoItem, setTodoItem] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -9,8 +9,7 @@ const TodoInput = () => {
     setIsvisible(!isVisible);
   }
   function handleAdd() {
-    console.log(todoItem);
-    console.log(deadline);
+    userData(todoItem, deadline);
   }
 
   return (
